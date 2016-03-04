@@ -14,3 +14,6 @@ add_executable(pretty_print pretty_print.cpp)
 add_executable(sort_benchmark sort_benchmark.cpp)
 
 #target_link_libraries(pretty_print ${Boost_LIBRARIES} zmq)
+
+add_executable(functional functional.cpp)
+target_link_libraries(functional jemalloc)
