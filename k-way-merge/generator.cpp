@@ -35,7 +35,7 @@ Generator::Generator(const std::string addr, unsigned count) noexcept :
         addr(addr), count(count) {
     std::random_device rd;
     std::mt19937 eng(rd());
-    std::normal_distribution<double> dist(5.0, 3.0);    // mu(5.0, 3.0)
+    std::normal_distribution<double> dist(5.0, 3.0);    // N(5.0, 3.0)
     data.resize(count);
     std::generate_n(data.begin(), count, std::bind(dist, std::ref(eng)));
     std::sort(data.begin(), data.end());

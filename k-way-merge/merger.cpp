@@ -13,7 +13,7 @@
 #include "message.h"
 
 int main() {
-    // ports are $ take 10 [10000..]
+    // ports are $ take 10 [9000..]
     zmq::context_t context;
     std::vector<std::shared_ptr<zmq::socket_t>> sockets;
     int port = 9000;
