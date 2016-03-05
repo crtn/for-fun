@@ -4,7 +4,7 @@ project(for-fun)
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_CXX_COMPILER g++)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -O2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -O2 -pthread")
 find_package(Boost REQUIRED COMPONENTS system filesystem serialization)
 
 include_directories(${Boost_INCLUDE_DIRS})
@@ -17,3 +17,8 @@ add_executable(sort_benchmark sort_benchmark.cpp)
 
 add_executable(functional functional.cpp)
 target_link_libraries(functional jemalloc)
+
+add_executable(k-way-merge-generator k-way-merge/generator.cpp k-way-merge/message.cpp)
+target_link_libraries(k-way-merge-generator ${Boost_LIBRARIES} zmq uuid)
+add_executable(k-way-merge-merger k-way-merge/merger.cpp k-way-merge/message.cpp)
+target_link_libraries(k-way-merge-merger ${Boost_LIBRARIES} zmq)
