@@ -22,3 +22,5 @@ add_executable(k-way-merge-generator k-way-merge/generator.cpp k-way-merge/messa
 target_link_libraries(k-way-merge-generator ${Boost_LIBRARIES} zmq uuid)
 add_executable(k-way-merge-merger k-way-merge/merger.cpp k-way-merge/message.cpp)
 target_link_libraries(k-way-merge-merger ${Boost_LIBRARIES} zmq)
+
+add_executable(any any.cpp)
